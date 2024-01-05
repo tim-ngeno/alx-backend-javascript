@@ -6,10 +6,23 @@ export default function handleProfileSignup(firstName, lastName, fileName) {
   const photoPromise = uploadPhoto(fileName);
 
   return Promise.allSettled([userPromise, photoPromise])
-    .then((res) => res.map((res) => (
-      {
-        status: res.status,
-        value: res.status === 'fulfilled' ? res.value : res.reason,
-      }
-    )));
+    .then((results) => {
+      const queue = results.map((result) => {
+        if (result.status === 'fulfilled') {
+          return {
+            status: 'fulfilled',
+            value: result.value,
+          };
+        }
+        return {
+          status: 'rejected',
+          value: `Error: ${fileName} cannot be processed`,
+        };
+      });
+      return queue;
+    })
+    .catch((error) => {
+      console.error('Error in handleProfileSignup:', error.message);
+      throw error; // Rethrow the error to maintain consistent error handling
+    });
 }
