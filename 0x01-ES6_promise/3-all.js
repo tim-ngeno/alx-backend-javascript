@@ -9,7 +9,7 @@ export default function handleProfileSignup() {
         resolve(result);
       })
       .catch((error) => {
-        console.log('Signup system offline');
+        console.error('Signup system offline');
         reject(error);
       });
   });
