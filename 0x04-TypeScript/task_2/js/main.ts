@@ -69,3 +69,20 @@ executeWork(employee1); // Output: Getting to work
 
 const employee2 = createEmployee(1000);
 executeWork(employee2); // Output: Getting to director tasks
+
+
+
+// STRING LITERAL TYPES
+
+type Subjects = 'Math' | 'History';
+
+function teachClass(todayClass: Subjects): string {
+    if (todayClass === 'Math') {
+	return `Teaching ${todayClass}`;
+    } else if (todayClass === 'History') {
+	return `Teaching ${todayClass}`;
+    }
+}
+
+console.log(teachClass('Math'));
+console.log(teachClass('History'));
