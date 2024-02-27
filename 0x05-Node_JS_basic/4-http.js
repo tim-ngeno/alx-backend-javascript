@@ -8,6 +8,8 @@ const server = app.createServer((req, res) => {
   res.end('Hello Holberton School!');
 });
 
-server.listen(port);
+server.listen(port, () => {
+  console.log('Server running on port 1245...');
+});
 
 module.exports = app;
