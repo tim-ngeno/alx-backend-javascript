@@ -20,8 +20,6 @@ function countStudents(path) {
 
     // Initialize counters for each field value
     const fieldCounts = {};
-
-    // Initialize a list for each field value
     const fieldLists = {};
 
     // Iterate over each line (excluding the header)
@@ -53,7 +51,7 @@ function countStudents(path) {
     Object.keys(fieldCounts).forEach((fieldValue) => {
       console.log(`Number of students in ${fields[fieldIndex]}`
                   + ` ${fieldValue}: ${fieldCounts[fieldValue]}.`
-                  + `List: ${fieldLists[fieldValue].join(', ')}`);
+                  + ` List: ${fieldLists[fieldValue].join(', ')}`); // Corrected the spacing
     });
   } catch (err) {
     throw new Error('Cannot load the database');
