@@ -16,4 +16,4 @@ function calculateNumber(type, a, b) {
   return res;
 }
 
-export default calculateNumber;
+module.exports = calculateNumber;
