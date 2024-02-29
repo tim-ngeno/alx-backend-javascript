@@ -1,4 +1,5 @@
 import { chai } from 'chai';
+const expect = chai.expect;
 import calculateNumber from './2-calcul_chai.js';
 
 describe('calculateNumber', () => {
